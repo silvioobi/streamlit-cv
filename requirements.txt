@@ -16,6 +16,7 @@ jsonschema-specifications==2025.4.1
 MarkupSafe==3.0.2
 narwhals==1.39.0
 numpy==2.2.5
+openpyxl
 packaging==24.2
 pandas==2.2.3
 pillow==11.2.1
@@ -39,3 +40,4 @@ typing_extensions==4.13.2
 tzdata==2025.2
 urllib3==2.4.0
 xyzservices==2025.4.0
+
