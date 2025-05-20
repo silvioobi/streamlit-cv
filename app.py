@@ -196,7 +196,7 @@ with st.container():
                 with st.expander(title):
                     # Institution + Bild
                     bilddatei = row.get("Bild", "")
-                    bild_url = f"/Users/silviooberholzer/Documents/Bewerbungen/Meine/aktuell/CV_Visual/images/{bilddatei}" if pd.notna(bilddatei) else None
+                    bild_url = f"/images/{bilddatei}" if pd.notna(bilddatei) else None
                     cols = st.columns([1, 4])
 
                     with cols[0]:
