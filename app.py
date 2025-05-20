@@ -59,31 +59,34 @@ with st.container():
     col_left, col_right = st.columns([3, 8], gap="large")
 
     with col_left:
+
         st.subheader("Persönliche Angaben")
         st.markdown("**Silvio Oberholzer**")
 
-
         try:
-            st.image("profilbild.jpg", width=200)
+            st.image("images/profilbild.jpg", width=200)
         except:
             st.warning("Bild nicht gefunden. Stelle sicher, dass 'profilbild.jpg' im Projektordner liegt.")
 
-        #if linkedin_url:
-        #    st.markdown(f"**LinkedIn:** [Profil ansehen]({linkedin_url})")
-        if linkedin_url:
-            st.markdown(
-                f"""
-                <div style="display: flex; align-items: center; gap: 10px;">
-                    <img src="linkedin.jpg" width="24">
-                    <a href="{linkedin_url}" target="_blank" style="text-decoration: none; font-weight: bold; color: white;">
-                        Profil ansehen
-                    </a>
-                </div>
-                """,
-                unsafe_allow_html=True
-            )
         st.markdown("✉️ silvio_oberholzer@hotmail.com")
         st.markdown("📞 +41 78 917 19 94")
+        st.markdown("🎂 geb. 6. März 1994")
+
+        #if linkedin_url:
+        #    st.markdown(f"**LinkedIn:** [Profil ansehen]({linkedin_url})")
+        #if linkedin_url:
+            #    st.markdown(
+            #   f"""
+            #   <div style="display: flex; align-items: center; gap: 10px;">
+            #       <img src="/Users/silviooberholzer/Documents/Bewerbungen/Meine/aktuell/CV_Visual/linkedin.jpg" width="24">
+            #      <a href="{linkedin_url}" target="_blank" style="text-decoration: none; font-weight: bold; color: white;">
+            #            Profil ansehen
+            #        </a>
+            #    </div>
+            #    """,
+            #    unsafe_allow_html=True
+            #)
+
 
 
 
@@ -98,6 +101,7 @@ with st.container():
         hobbies = ["🎾 Tennis", "🏓 Padel", "🎯 Darts", "🥾 Wandern", "🏃‍♂️ Joggen", "🍳 Kochen"]
         st.markdown("**Hobbies:**<br>" + "<br>".join(hobbies), unsafe_allow_html=True)
         #st.markdown("**Hobbies:** 🎾 Tennis, 🏓 Padel, 🎯 Darts, 🥾 Wandern, 🏃‍ Joggen, 🍳 Kochen")
+        st.markdown(f"[LinkedIn Profil]({linkedin_url})")
 
         st.subheader("Kenntnisse")
         try:
@@ -166,15 +170,15 @@ with st.container():
             autosize=True,
             font=dict(size=14),
             margin=dict(t=30, b=30, l=20, r=150),
-            legend_title_text="Klassifizierung",
+            legend_title_text="",
             legend=dict(
                 orientation="h",  # horizontal
                 yanchor="bottom",
                 y=1.1,  # etwas oberhalb des Plots
                 xanchor="center",
                 x=0.5
-            )
-        )
+            ))
+
         st.plotly_chart(fig, use_container_width=True)
 
         # Details nach Klassifizierung (gleiche Reihenfolge wie im Gantt)
@@ -192,7 +196,7 @@ with st.container():
                 with st.expander(title):
                     # Institution + Bild
                     bilddatei = row.get("Bild", "")
-                    bild_url = f"/Users/silviooberholzer/Documents/Bewerbungen/Meine/aktuell/CV_Visual/{bilddatei}" if pd.notna(bilddatei) else None
+                    bild_url = f"/Users/silviooberholzer/Documents/Bewerbungen/Meine/aktuell/CV_Visual/images/{bilddatei}" if pd.notna(bilddatei) else None
                     cols = st.columns([1, 4])
 
                     with cols[0]:
