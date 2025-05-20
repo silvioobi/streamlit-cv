@@ -66,19 +66,18 @@ with st.container():
             st.warning("Karte konnte nicht geladen werden.")
 
     with col_right:
-        st.subheader("Beruflicher Werdegang und Aus-/Weiterbildungen")
-        fig = px.timeline(cv_data, x_start="Start", x_end="Finish", y="Task", color="Type")
-        fig.update_yaxes(autorange="reversed", title=None)
-        fig.update_layout(height=400, font=dict(size=14), margin=dict(t=30, b=30))
-        st.plotly_chart(fig, use_container_width=True)
+        st.subheader("Beruflicher Werdegang & Ausbildung")
 
-        clicked_task = st.selectbox("Wähle eine Position zur Anzeige der Beschreibung:", cv_data["Task"].tolist())
-        if clicked_task:
-            institution, beschreibung = position_descriptions.get(clicked_task, ("", "Keine Beschreibung verfügbar."))
-            st.markdown(f"<b>Beschreibung:</b><br><div style='white-space: pre-wrap'>{institution}</div>",
-                        unsafe_allow_html=True)
-            st.markdown(f"<b>Beschreibung:</b><br><div style='white-space: pre-wrap'>{beschreibung}</div>",
-                        unsafe_allow_html=True)
+        # Chronologisch sortieren, z. B. nach Startdatum
+        cv_sorted = cv_data.sort_values(by="Start", ascending=False)
+
+        for _, row in cv_sorted.iterrows():
+            title = f"{row['Task']} ({row['Start'].date()} – {row['Finish'].date()})"
+            with st.expander(title):
+                st.markdown(f"**Institution:** {row['Institution']}")
+                st.markdown(
+                    f"**Beschreibung:**<br><div style='white-space: pre-wrap'>{row['Formatted Beschreibung']}</div>",
+                    unsafe_allow_html=True)
 
 # Unterer Block: Kenntnisse und Zertifikate
 col3, col4 = st.columns([1, 1], gap="large")
