@@ -66,37 +66,20 @@ with st.sidebar:
 
     st.markdown("✉️ silvio_oberholzer@hotmail.com")
     st.markdown("📞 +41 78 917 19 94")
-    st.markdown("🎂 geb. 6. März 1994")
+    st.markdown("🎂 6. März 1994")
+    st.markdown("📍 Alpsteinstrasse 9, 9050 Appenzell")
 
-    #if linkedin_url:
-    #    st.markdown(f"**LinkedIn:** [Profil ansehen]({linkedin_url})")
-    #if linkedin_url:
-        #    st.markdown(
-        #   f"""
-        #   <div style="display: flex; align-items: center; gap: 10px;">
-        #       <img src="/Users/silviooberholzer/Documents/Bewerbungen/Meine/aktuell/CV_Visual/linkedin.jpg" width="24">
-        #      <a href="{linkedin_url}" target="_blank" style="text-decoration: none; font-weight: bold; color: white;">
-        #            Profil ansehen
-        #        </a>
-        #    </div>
-        #    """,
-        #    unsafe_allow_html=True
-        #)
-
-
-
-
-    try:
-        st.markdown("**Wohnort:**")
-        map_data = folium.Map(location=[47.33078, 9.42634], zoom_start=12)
-        folium.Marker([47.33078, 9.42634], popup="Meine Adresse").add_to(map_data)
-        st_data = st_folium(map_data, width=300, height=200)
-    except:
-        st.warning("Karte konnte nicht geladen werden.")
+    #try:
+    #    with st.container():
+    #        st.markdown("**Wohnort:**")
+    #        map_data = folium.Map(location=[47.33078, 9.42634], zoom_start=12)
+    #        folium.Marker([47.33078, 9.42634], popup="Meine Adresse").add_to(map_data)
+    #        st_folium(map_data, width=300, height=200)
+    #except Exception as e:
+    #    st.warning(f"Karte konnte nicht geladen werden. ({e})")
 
     hobbies = ["🎾 Tennis", "🏓 Padel", "🎯 Darts", "🥾 Wandern", "🏃‍♂️ Joggen", "🍳 Kochen"]
     st.markdown("**Hobbies:**<br>" + "<br>".join(hobbies), unsafe_allow_html=True)
-    #st.markdown("**Hobbies:** 🎾 Tennis, 🏓 Padel, 🎯 Darts, 🥾 Wandern, 🏃‍ Joggen, 🍳 Kochen")
     st.markdown(f"[LinkedIn Profil]({linkedin_url})")
 
     st.subheader("Kenntnisse")
