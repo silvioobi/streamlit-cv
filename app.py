@@ -47,9 +47,7 @@ except:
 
 certificates = [
     "Hermes 5.1 Advanced",
-    "Certified Project Management Associate IPMA Level D",
-    "First Certificate in English B2"
-]
+    "Certified Project Management Associate IPMA Level D"]
 
 st.title("Lebenslauf Silvio Oberholzer")
 
