@@ -174,7 +174,7 @@ for group in type_order:
                     st.warning(f"Bild konnte nicht geladen werden: {bild_url}")
 
         with cols[1]:
-            st.markdown(f"**Institution:** {row['Institution']}<br><br>", unsafe_allow_html=True)
+            st.markdown(f"**Institution:** {row['Institution']}<br>", unsafe_allow_html=True)
             st.markdown(
                 f"**Beschreibung:**<br><div style='white-space: pre-wrap'>{row['Formatted Beschreibung']}</div>",
                 unsafe_allow_html=True
