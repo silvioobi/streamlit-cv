@@ -11,40 +11,6 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-st.markdown(
-    """
-    <style>
-        /* Hintergrundfarbe für die gesamte Seite */
-        .main {
-            background-color: white;
-            color: black;
-        }
-
-        /* Sidebar */
-        .css-1d391kg, .css-1cypcdb {
-            background-color: white !important;
-            color: black !important;
-        }
-
-        /* Textfarbe überall */
-        body, .stText, .stMarkdown, .stApp {
-            color: black !important;
-        }
-
-        /* Titel, Subheader, etc. */
-        h1, h2, h3, h4, h5, h6 {
-            color: black;
-        }
-
-        /* Links (optional auf schwarz) */
-        a {
-            color: black;
-        }
-    </style>
-    """,
-    unsafe_allow_html=True
-)
-
 # Load CV data
 cv_file = "CV.xlsx"
 cv_data = pd.read_excel(cv_file)
