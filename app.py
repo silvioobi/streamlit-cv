@@ -62,6 +62,7 @@ certificates = [
 st.title("Lebenslauf Silvio Oberholzer")
 
 with st.sidebar:
+    st.subheader("")
     st.subheader("Persönliche Angaben")
     st.markdown("**Silvio Oberholzer**")
 
