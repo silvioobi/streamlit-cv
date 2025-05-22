@@ -11,6 +11,17 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+st.markdown("""
+    <style>
+    html, body, [class*="css"]  {
+        font-size: 16px;
+    }
+    h1, h2, h3, h4 {
+        font-weight: 700;
+    }
+    </style>
+    """, unsafe_allow_html=True)
+
 # Load CV data
 cv_file = "CV.xlsx"
 cv_data = pd.read_excel(cv_file)
@@ -147,14 +158,12 @@ fig.update_layout(
 
 st.plotly_chart(fig, use_container_width=True)
 
-st.subheader("Details zu den Stationen")
-
 # Reihenfolge wie im Gantt
 type_order = cv_data["Kategorie"].dropna().unique().tolist()
 
 for group in type_order:
     group_data = cv_data[cv_data["Kategorie"] == group].sort_values(by="Start", ascending=False)
-    st.markdown(f"### {group}")  # Überschrift pro Klassifizierung
+    st.markdown(f"### Details {group}")
 
     for _, row in group_data.iterrows():
         title = f"**{row['Bezeichnung']}** ({row['Start'].date()} – {row['Finish'].date()})"
