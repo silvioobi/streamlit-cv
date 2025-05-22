@@ -51,10 +51,6 @@ certificates = [
 
 st.title("Lebenslauf Silvio Oberholzer")
 
-# Oberer Block in Container mit zwei Spalten
-
-
-
 with st.sidebar:
     st.subheader("Persönliche Angaben")
     st.markdown("**Silvio Oberholzer**")
@@ -141,8 +137,10 @@ fig = px.timeline(
     x_end="Finish",
     y="Bezeichnung",
     color="Kategorie",
-    color_discrete_sequence=px.colors.qualitative.Set2
+    color_discrete_sequence=px.colors.qualitative.Set2,
+    hover_data=["Institution"]
 )
+
 fig.update_yaxes(autorange="reversed", title=None)
 fig.update_layout(
     autosize=True,
