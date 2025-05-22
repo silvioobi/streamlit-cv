@@ -65,15 +65,6 @@ with st.sidebar:
     st.markdown("🎂 6. März 1994")
     st.markdown("📍 Alpsteinstrasse 9, 9050 Appenzell")
 
-    #try:
-    #    with st.container():
-    #        st.markdown("**Wohnort:**")
-    #        map_data = folium.Map(location=[47.33078, 9.42634], zoom_start=12)
-    #        folium.Marker([47.33078, 9.42634], popup="Meine Adresse").add_to(map_data)
-    #        st_folium(map_data, width=300, height=200)
-    #except Exception as e:
-    #    st.warning(f"Karte konnte nicht geladen werden. ({e})")
-
     hobbies = ["🎾 Tennis", "🏓 Padel", "🎯 Darts", "🥾 Wandern", "🏃‍♂️ Joggen", "🍳 Kochen"]
     st.markdown("**Hobbies:**<br>" + "<br>".join(hobbies), unsafe_allow_html=True)
     st.markdown(f"[LinkedIn Profil]({linkedin_url})")
