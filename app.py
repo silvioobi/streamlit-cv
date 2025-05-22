@@ -148,7 +148,6 @@ fig.update_layout(
 
 st.plotly_chart(fig, use_container_width=True)
 
-# Details nach Klassifizierung (gleiche Reihenfolge wie im Gantt)
 st.subheader("Details zu den Stationen")
 
 # Reihenfolge wie im Gantt
@@ -159,24 +158,27 @@ for group in type_order:
     st.markdown(f"### {group}")  # Überschrift pro Klassifizierung
 
     for _, row in group_data.iterrows():
-        title = f"{row['Bezeichnung']} ({row['Start'].date()} – {row['Finish'].date()})"
-        with st.expander(title):
-            # Institution + Bild
-            bilddatei = row.get("Bild", "")
-            bild_url = f"images/{bilddatei}" if pd.notna(bilddatei) else None
-            cols = st.columns([1, 4])
+        title = f"**{row['Bezeichnung']}** ({row['Start'].date()} – {row['Finish'].date()})"
+        st.markdown(title)
 
-            with cols[0]:
-                if bild_url and str(bild_url).lower().endswith((".png", ".jpg", ".jpeg")):
-                    try:
-                        st.image(bild_url, width=150)
-                    except Exception as e:
-                        st.warning(f"Bild konnte nicht geladen werden: {bild_url}")
+        bilddatei = row.get("Bild", "")
+        bild_url = f"images/{bilddatei}" if pd.notna(bilddatei) else None
 
-            with cols[1]:
-                st.markdown(f"**Institution:** {row['Institution']}<br><br>", unsafe_allow_html=True)
+        cols = st.columns([1, 4])
 
+        with cols[0]:
+            if bild_url and str(bild_url).lower().endswith((".png", ".jpg", ".jpeg")):
+                try:
+                    st.image(bild_url, width=150)
+                except Exception as e:
+                    st.warning(f"Bild konnte nicht geladen werden: {bild_url}")
+
+        with cols[1]:
+            st.markdown(f"**Institution:** {row['Institution']}<br><br>", unsafe_allow_html=True)
             st.markdown(
                 f"**Beschreibung:**<br><div style='white-space: pre-wrap'>{row['Formatted Beschreibung']}</div>",
                 unsafe_allow_html=True
             )
+
+        st.markdown("---")  # Trennlinie zwischen Stationen
+
