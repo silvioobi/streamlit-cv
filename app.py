@@ -13,6 +13,15 @@ st.set_page_config(
 
 st.markdown("""
     <style>
+    html, body, [class*="css"] {
+        background-color: white;
+        color: black;
+    }
+    </style>
+""", unsafe_allow_html=True)
+
+st.markdown("""
+    <style>
     html, body, [class*="css"]  {
         font-size: 16px;
     }
@@ -62,7 +71,6 @@ certificates = [
 st.title("Lebenslauf Silvio Oberholzer")
 
 with st.sidebar:
-    st.subheader("")
     st.subheader("Persönliche Angaben")
     st.markdown("**Silvio Oberholzer**")
 
